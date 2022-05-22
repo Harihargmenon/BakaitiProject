@@ -1,2 +1,2 @@
-# The-Bakaiti-Project
+# BakaitiProject
 Project Under The Culture Canteen

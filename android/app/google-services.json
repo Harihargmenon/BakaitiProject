@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "82997630697",
+    "project_id": "bakaitiproject-dev",
+    "storage_bucket": "bakaitiproject-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82997630697:android:f07252f19249b967438278",
+        "android_client_info": {
+          "package_name": "com.bakaitiproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82997630697-tr9ligauguka5g5t5pccltvtpp8rat9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXIIq5X30WUJp7uoRQ9n-ctGEJnxjs4ko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82997630697-tr9ligauguka5g5t5pccltvtpp8rat9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

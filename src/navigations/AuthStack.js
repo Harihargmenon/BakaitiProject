@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import SignupScreen from '../screens/SignupScreen';
-import LoginScreen from '../screens/LoginScreen';
-import OnboardingScreen from '../screens/OnboardingScreen';
+import SignupPage from '../screens/SignupPage';
+import LoginPage from '../screens/LoginPage';
+import OnboardingPage from '../screens/OnboardingPage';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -43,17 +43,17 @@ const AuthStack = () => {
     <Stack.Navigator initialRouteName={routeName}>
       <Stack.Screen
         name="Onboarding"
-        component={OnboardingScreen}
+        component={OnboardingPage}
         options={{header: () => null}}
       />
       <Stack.Screen
         name="Login"
-        component={LoginScreen}
+        component={LoginPage}
         options={{header: () => null}}
       />
       <Stack.Screen
         name="Signup"
-        component={SignupScreen}
+        component={SignupPage}
         options={({navigation}) => ({
           title: '',
           headerStyle: {

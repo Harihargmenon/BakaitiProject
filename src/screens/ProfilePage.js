@@ -14,7 +14,7 @@ import {AuthContext} from '../navigation/AuthProvider';
 import firestore from '@react-native-firebase/firestore';
 import PostCard from '../components/PostCard';
 
-const ProfileScreen = ({navigation, route}) => {
+const ProfilePage = ({navigation, route}) => {
   const {user, logout} = useContext(AuthContext);
 
   const [posts, setPosts] = useState([]);
@@ -158,7 +158,7 @@ const ProfileScreen = ({navigation, route}) => {
   );
 };
 
-export default ProfileScreen;
+export default ProfilePage;
 
 const styles = StyleSheet.create({
   container: {

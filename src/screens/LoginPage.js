@@ -11,9 +11,9 @@ import {
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
-import {AuthContext} from '../navigation/AuthProvider';
+import {AuthContext} from '../navigations/AuthProvider';
 
-const LoginScreen = ({navigation}) => {
+const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -21,10 +21,6 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Image
-        source={require('../assets/rn-social-logo.png')}
-        style={styles.logo}
-      />
       <Text style={styles.text}>RN Social App</Text>
 
       <FormInput
@@ -85,7 +81,7 @@ const LoginScreen = ({navigation}) => {
   );
 };
 
-export default LoginScreen;
+export default LoginPage;
 
 const styles = StyleSheet.create({
   container: {

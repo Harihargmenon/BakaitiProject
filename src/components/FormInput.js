@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
-import {windowHeight, windowWidth} from '../utils/Dimentions';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 10,
     width: '100%',
-    height: windowHeight / 15,
     borderColor: '#ccc',
     borderRadius: 3,
     borderWidth: 1,
@@ -59,8 +57,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
     marginBottom: 10,
-    width: windowWidth / 1.5,
-    height: windowHeight / 15,
+
     fontSize: 16,
     borderRadius: 8,
     borderWidth: 1,

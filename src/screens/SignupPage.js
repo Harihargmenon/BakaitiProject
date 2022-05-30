@@ -3,9 +3,9 @@ import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
-import {AuthContext} from '../navigation/AuthProvider';
+import {AuthContext} from '../navigations/AuthProvider';
 
-const SignupScreen = ({navigation}) => {
+const SignupPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
@@ -91,7 +91,7 @@ const SignupScreen = ({navigation}) => {
   );
 };
 
-export default SignupScreen;
+export default SignupPage;
 
 const styles = StyleSheet.create({
   container: {

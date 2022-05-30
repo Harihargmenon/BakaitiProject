@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
-import {windowHeight, windowWidth} from '../utils/Dimentions';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 10,
     width: '100%',
-    height: windowHeight / 15,
+    height: 50,
     padding: 10,
     flexDirection: 'row',
     borderRadius: 3,

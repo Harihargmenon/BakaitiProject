@@ -21,8 +21,7 @@ const LoginPage = ({navigation}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.text}>RN Social App</Text>
-
+      <Text style={styles.text}>The Bakaiti Project</Text>
       <FormInput
         labelValue={email}
         onChangeText={userEmail => setEmail(userEmail)}
@@ -32,7 +31,6 @@ const LoginPage = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-
       <FormInput
         labelValue={password}
         onChangeText={userPassword => setPassword(userPassword)}
@@ -40,7 +38,6 @@ const LoginPage = ({navigation}) => {
         iconType="lock"
         secureTextEntry={true}
       />
-
       <FormButton
         buttonTitle="Sign In"
         onPress={() => login(email, password)}
@@ -52,14 +49,6 @@ const LoginPage = ({navigation}) => {
 
       {Platform.OS === 'android' ? (
         <View>
-          <SocialButton
-            buttonTitle="Sign In with Facebook"
-            btnType="facebook"
-            color="#4867aa"
-            backgroundColor="#e6eaf4"
-            onPress={() => fbLogin()}
-          />
-
           <SocialButton
             buttonTitle="Sign In with Google"
             btnType="google"

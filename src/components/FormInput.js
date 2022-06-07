@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 10,
     width: '100%',
+    height: 50,
     borderColor: '#ccc',
     borderRadius: 3,
     borderWidth: 1,

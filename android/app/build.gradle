@@ -229,6 +229,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+    storeFile file('bakaiti_project')
+      storePassword 'password123'
+      keyAlias 'bakaiti_project'
+      keyPassword 'password123'
+   }
     }
     buildTypes {
         debug {

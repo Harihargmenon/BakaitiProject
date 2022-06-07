@@ -50,7 +50,6 @@ const OnboardingPage = ({navigation}) => {
       pages={[
         {
           backgroundColor: '#a6e4d0',
-
           title: 'Connect to the World',
           subtitle: 'A New Way To Connect With The World',
         },

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "657448627589-0iji9qcb3lsvorv7hhh74hpptgpnl93l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bakaitiproject",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "657448627589-fr1g8309g7vs3lo79fh88dhnghqvou0b.apps.googleusercontent.com",
           "client_type": 3
         }

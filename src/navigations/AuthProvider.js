@@ -79,6 +79,13 @@ export const AuthProvider = ({children}) => {
             console.log(e);
           }
         },
+        loginPhone: async phone => {
+          try {
+            await auth().signInWithPhoneNumber(phone);
+          } catch (e) {
+            console.log(e);
+          }
+        },
       }}>
       {children}
     </AuthContext.Provider>

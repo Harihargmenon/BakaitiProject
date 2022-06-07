@@ -9,6 +9,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import LoginPhonePage from '../screens/LoginPhonePage';
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,7 @@ const AuthStack = () => {
 
     GoogleSignin.configure({
       webClientId:
-        '657448627589-0iji9qcb3lsvorv7hhh74hpptgpnl93l.apps.googleusercontent.com',
+        '657448627589-fr1g8309g7vs3lo79fh88dhnghqvou0b.apps.googleusercontent.com',
     });
   }, []);
 
@@ -74,6 +75,11 @@ const AuthStack = () => {
             </View>
           ),
         })}
+      />
+      <Stack.Screen
+        name="PhoneLogin"
+        component={LoginPhonePage}
+        options={{header: () => null}}
       />
     </Stack.Navigator>
   );

@@ -1,9 +1,9 @@
+//import react native essentials
 import React, {useContext, useState} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
-  Image,
   Platform,
   StyleSheet,
   ScrollView,
@@ -13,40 +13,45 @@ import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 import {AuthContext} from '../navigations/AuthProvider';
 
-const LoginPage = ({navigation}) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+//login page using phone number
+const LoginPhonePage = ({navigation}) => {
+  const [phone, setPhone] = useState();
+  const [phoneError, setPhoneError] = useState(false);
+  const [phoneErrorMessage, setPhoneErrorMessage] = useState('');
+  const [phoneErrorMessage2, setPhoneErrorMessage2] = useState('');
+  const [phoneErrorMessage3, setPhoneErrorMessage3] = useState('');
+  const [phoneErrorMessage4, setPhoneErrorMessage4] = useState('');
+  const [phoneErrorMessage5, setPhoneErrorMessage5] = useState('');
+  const [phoneErrorMessage6, setPhoneErrorMessage6] = useState('');
 
-  const {login, googleLogin, fbLogin} = useContext(AuthContext);
+  const {loginPhone, googleLogin} = useContext(AuthContext);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.text}>The Bakaiti Project</Text>
       <FormInput
-        labelValue={email}
-        onChangeText={userEmail => setEmail(userEmail)}
-        placeholderText="Email"
-        iconType="user"
-        keyboardType="email-address"
+        labelValue={phone}
+        onChangeText={userPhone => setPhone(userPhone)}
+        placeholderText="Enter Phone Number"
+        iconType="phone"
+        keyboardType="phone-pad"
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <FormInput
-        labelValue={password}
-        onChangeText={userPassword => setPassword(userPassword)}
-        placeholderText="Password"
-        iconType="lock"
-        secureTextEntry={true}
-      />
       <FormButton
-        buttonTitle="Sign In"
-        onPress={() => login(email, password)}
+        buttonTitle="Next"
+        onPress={() => {
+          if (phone.length === 10) {
+            loginPhone(phone);
+          } else {
+            setPhoneError(true);
+            setPhoneErrorMessage('Please enter a valid phone number');
+          }
+        }}
       />
-
-      <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
-        <Text style={styles.navButtonText}>Forgot Password?</Text>
-      </TouchableOpacity>
-
+      {phoneError && (
+        <Text style={styles.errorMessage}>{phoneErrorMessage}</Text>
+      )}
       {Platform.OS === 'android' ? (
         <View>
           <SocialButton
@@ -57,28 +62,21 @@ const LoginPage = ({navigation}) => {
             onPress={() => googleLogin()}
           />
           <SocialButton
-            buttonTitle="Sign In using Phone Number"
-            btnType="phone"
+            buttonTitle="Sign In using Email"
+            btnType="email"
             color="#de4d41"
             backgroundColor="#f5e7ea"
-            onPress={() => navigation.navigate('PhoneLogin')}
+            onPress={() => navigation.navigate('Login')}
           />
         </View>
       ) : null}
-
-      <TouchableOpacity
-        style={styles.forgotButton}
-        onPress={() => navigation.navigate('Signup')}>
-        <Text style={styles.navButtonText}>
-          Don't have an acount? Create here
-        </Text>
-      </TouchableOpacity>
     </ScrollView>
   );
 };
 
-export default LoginPage;
+export default LoginPhonePage;
 
+//styling the page
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',

@@ -79,9 +79,19 @@ export const AuthProvider = ({children}) => {
             console.log(e);
           }
         },
-        loginPhone: async phone => {
+        loginPhone: async (phone, confirmation, setConfirmation) => {
           try {
-            await auth().signInWithPhoneNumber(phone);
+            const confirm = await auth().signInWithPhoneNumber(phone);
+            setConfirmation(confirm);
+            console.log(confirm);
+          } catch (e) {
+            console.log(e);
+          }
+        },
+        verifyOtp: async (code, confirmation) => {
+          console.log(confirmation);
+          try {
+            await confirmation.confirm(code);
           } catch (e) {
             console.log(e);
           }

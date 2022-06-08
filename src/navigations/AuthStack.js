@@ -10,6 +10,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 import {GoogleSignin} from '@react-native-community/google-signin';
 import LoginPhonePage from '../screens/LoginPhonePage';
+import OtpPage from '../screens/OtpPage';
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="PhoneLogin"
         component={LoginPhonePage}
+        options={{header: () => null}}
+      />
+      <Stack.Screen
+        name="OtpPage"
+        component={OtpPage}
         options={{header: () => null}}
       />
     </Stack.Navigator>

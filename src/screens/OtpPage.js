@@ -7,7 +7,7 @@ import SocialButton from '../components/SocialButton';
 import {AuthContext} from '../navigations/AuthProvider';
 
 //OTP screen after entering phone number
-const OtpPage = ({navigation}) => {
+const OtpPage = ({navigation, confirmation}) => {
   const [otp, setOtp] = useState();
   const [otpError, setOtpError] = useState(false);
   const [otpErrorMessage, setOtpErrorMessage] = useState('');
@@ -18,6 +18,10 @@ const OtpPage = ({navigation}) => {
   const [otpErrorMessage6, setOtpErrorMessage6] = useState('');
 
   const {verifyOtp} = useContext(AuthContext);
+
+  const confirm = confirmation.params;
+
+  console.log(confirm);
 
   return (
     <View style={styles.container}>
@@ -35,7 +39,7 @@ const OtpPage = ({navigation}) => {
         buttonTitle="Verify"
         onPress={() => {
           if (otp.length === 6) {
-            verifyOtp(otp);
+            verifyOtp(otp, confirmation);
           } else {
             setOtpError(true);
             setOtpErrorMessage('Please enter a valid OTP');

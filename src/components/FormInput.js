@@ -1,9 +1,17 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
+const FormInput = ({
+  labelValue,
+  placeholderText,
+  iconType,
+  passwordVisibility,
+  setPasswordVisibility,
+  ...rest
+}) => {
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconStyle}>
@@ -16,6 +24,13 @@ const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
         placeholder={placeholderText}
         placeholderTextColor="#666"
         {...rest}
+      />
+      <Icon
+        style={{paddingRight: 15}}
+        name={passwordVisibility ? 'eye' : 'eye-slash'}
+        size={20}
+        color="gray"
+        onPress={() => setPasswordVisibility(!passwordVisibility)}
       />
     </View>
   );
@@ -62,5 +77,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 8,
     borderWidth: 1,
+  },
+  rightIcon: {
+    padding: 10,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderLeftColor: '#ccc',
+    borderLeftWidth: 1,
+    width: 50,
   },
 });

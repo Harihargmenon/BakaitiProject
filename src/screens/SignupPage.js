@@ -9,6 +9,7 @@ const SignupPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
 
   const {register, googleLogin} = useContext(AuthContext);
 
@@ -31,7 +32,9 @@ const SignupPage = ({navigation}) => {
         onChangeText={userPassword => setPassword(userPassword)}
         placeholderText="Password"
         iconType="lock"
-        secureTextEntry={true}
+        secureTextEntry={passwordVisibility}
+        passwordVisibility={passwordVisibility}
+        setPasswordVisibility={setPasswordVisibility}
       />
 
       <FormInput
@@ -39,7 +42,9 @@ const SignupPage = ({navigation}) => {
         onChangeText={userPassword => setConfirmPassword(userPassword)}
         placeholderText="Confirm Password"
         iconType="lock"
-        secureTextEntry={true}
+        secureTextEntry={passwordVisibility}
+        passwordVisibility={passwordVisibility}
+        setPasswordVisibility={setPasswordVisibility}
       />
 
       <FormButton

@@ -7,15 +7,18 @@ import {
   Platform,
   StyleSheet,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 import {AuthContext} from '../navigations/AuthProvider';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
 
   const {login, googleLogin, fbLogin} = useContext(AuthContext);
 
@@ -36,17 +39,18 @@ const LoginPage = ({navigation}) => {
         onChangeText={userPassword => setPassword(userPassword)}
         placeholderText="Password"
         iconType="lock"
-        secureTextEntry={true}
+        secureTextEntry={passwordVisibility}
+        passwordVisibility={passwordVisibility}
+        setPasswordVisibility={setPasswordVisibility}
       />
+
       <FormButton
         buttonTitle="Sign In"
         onPress={() => login(email, password)}
       />
-
       <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
         <Text style={styles.navButtonText}>Forgot Password?</Text>
       </TouchableOpacity>
-
       {Platform.OS === 'android' ? (
         <View>
           <SocialButton
@@ -65,7 +69,6 @@ const LoginPage = ({navigation}) => {
           />
         </View>
       ) : null}
-
       <TouchableOpacity
         style={styles.forgotButton}
         onPress={() => navigation.navigate('Signup')}>

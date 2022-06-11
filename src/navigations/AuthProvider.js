@@ -75,6 +75,8 @@ export const AuthProvider = ({children}) => {
         logout: async () => {
           try {
             await auth().signOut();
+            //signout the user's Google account
+            await GoogleSignin.signOut();
           } catch (e) {
             console.log(e);
           }

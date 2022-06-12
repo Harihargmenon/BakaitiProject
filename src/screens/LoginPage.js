@@ -63,8 +63,8 @@ const LoginPage = ({navigation}) => {
           <SocialButton
             buttonTitle="Sign In using Phone Number"
             btnType="phone"
-            color="#de4d41"
-            backgroundColor="#f5e7ea"
+            color="#0077b6"
+            backgroundColor="#90e0ef"
             onPress={() => navigation.navigate('PhoneLogin')}
           />
         </View>

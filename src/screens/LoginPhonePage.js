@@ -73,7 +73,7 @@ const LoginPhonePage = ({navigation}) => {
               />
               <SocialButton
                 buttonTitle="Sign In using Email"
-                btnType="email"
+                btnType="envelope-o"
                 color="#de4d41"
                 backgroundColor="#f5e7ea"
                 onPress={() => navigation.navigate('Login')}

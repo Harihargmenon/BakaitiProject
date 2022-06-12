@@ -25,13 +25,17 @@ const FormInput = ({
         placeholderTextColor="#666"
         {...rest}
       />
-      <Icon
-        style={{paddingRight: 15}}
-        name={passwordVisibility ? 'eye' : 'eye-slash'}
-        size={20}
-        color="gray"
-        onPress={() => setPasswordVisibility(!passwordVisibility)}
-      />
+      {iconType === 'lock' ? (
+        <>
+          <Icon
+            style={{paddingRight: 15}}
+            name={!passwordVisibility ? 'eye' : 'eyeo'}
+            size={20}
+            color="gray"
+            onPress={() => setPasswordVisibility(!passwordVisibility)}
+          />
+        </>
+      ) : null}
     </View>
   );
 };

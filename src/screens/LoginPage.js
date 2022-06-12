@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [passwordVisibility, setPasswordVisibility] = useState(true);
 
   const {login, googleLogin, fbLogin} = useContext(AuthContext);
 

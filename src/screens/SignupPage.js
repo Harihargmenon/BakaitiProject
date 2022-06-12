@@ -9,7 +9,7 @@ const SignupPage = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const [passwordVisibility, setPasswordVisibility] = useState(true);
 
   const {register, googleLogin} = useContext(AuthContext);
 
@@ -75,6 +75,13 @@ const SignupPage = ({navigation}) => {
             color="#de4d41"
             backgroundColor="#f5e7ea"
             onPress={() => googleLogin()}
+          />
+          <SocialButton
+            buttonTitle="Sign In using Phone Number"
+            btnType="phone"
+            color="#de4d41"
+            backgroundColor="#f5e7ea"
+            onPress={() => navigation.navigate('PhoneLogin')}
           />
         </View>
       ) : null}

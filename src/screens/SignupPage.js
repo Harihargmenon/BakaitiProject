@@ -1,5 +1,12 @@
 import React, {useContext, useState} from 'react';
-import {View, Text, TouchableOpacity, Platform, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Platform,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
@@ -12,6 +19,16 @@ const SignupPage = ({navigation}) => {
   const [passwordVisibility, setPasswordVisibility] = useState(true);
 
   const {register, googleLogin} = useContext(AuthContext);
+
+  //create an emailExists alert for an existing email
+  const emailExists = () => {
+    Alert.alert(
+      'Email already exists',
+      'Please try another email',
+      [{text: 'OK'}],
+      {cancelable: false},
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -49,23 +66,8 @@ const SignupPage = ({navigation}) => {
 
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => register(email, password)}
+        onPress={() => register(email, password, emailExists)}
       />
-
-      <View style={styles.textPrivate}>
-        <Text style={styles.color_textPrivate}>
-          By registering, you confirm that you accept our{' '}
-        </Text>
-        <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
-          <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
-            Terms of service
-          </Text>
-        </TouchableOpacity>
-        <Text style={styles.color_textPrivate}> and </Text>
-        <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
-          Privacy Policy
-        </Text>
-      </View>
 
       {Platform.OS === 'android' ? (
         <View>

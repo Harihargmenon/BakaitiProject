@@ -2,6 +2,7 @@ import React, {createContext, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import {Alert} from 'react-native';
 
 export const AuthContext = createContext();
 
@@ -39,7 +40,7 @@ export const AuthProvider = ({children}) => {
             console.log({error});
           }
         },
-        register: async (email, password) => {
+        register: async (email, password, emailExists) => {
           try {
             await auth()
               .createUserWithEmailAndPassword(email, password)
@@ -62,11 +63,13 @@ export const AuthProvider = ({children}) => {
                       'Something went wrong with added user to firestore: ',
                       error,
                     );
+                    //alert in the app something went wrong
                   });
               })
               //we need to catch the whole sign up process if it fails too.
               .catch(error => {
                 console.log('Something went wrong with sign up: ', error);
+                emailExists();
               });
           } catch (e) {
             console.log(e);

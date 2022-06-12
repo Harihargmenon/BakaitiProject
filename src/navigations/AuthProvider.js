@@ -19,6 +19,11 @@ export const AuthProvider = ({children}) => {
             await auth().signInWithEmailAndPassword(email, password);
           } catch (e) {
             console.log(e);
+            Alert.alert(
+              'Invalid login',
+              'The password is invalid or the user does not have a password.',
+              [{text: 'OK'}],
+            );
           }
         },
         googleLogin: async () => {

@@ -18,12 +18,27 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 
-import {Container} from '../styles/FeedStyles';
+import {Card, Container} from '../styles/FeedStyles';
 
 const HomeScreen = ({navigation}) => {
   return (
     <View>
       <Text>This is the Homepage of the Bakaiti Project</Text>
+      <Card>
+        <Text>Topic A</Text>
+      </Card>
+      <Card>
+        <Text>Topic B</Text>
+      </Card>
+      <Card>
+        <Text>Topic C</Text>
+      </Card>
+      <Card>
+        <Text>Topic D</Text>
+      </Card>
+      <Card>
+        <Text>Topic E</Text>
+      </Card>
     </View>
   );
 };

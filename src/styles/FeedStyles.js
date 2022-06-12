@@ -8,8 +8,16 @@ export const Container = styled.View`
 `;
 
 export const Card = styled.View`
-  background-color: #f8f8f8;
-  width: 100%;
+  background-color: #f80;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  elevation: 5;
+  shadow-color: #000;
+  shadow-offset: {width: 0, height: 2};
+  shadow-opacity: 0.8;
+  shadow-radius: 2;
+  width: 40%;
   margin-bottom: 20px;
   border-radius: 10px;
 `;

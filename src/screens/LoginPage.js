@@ -43,7 +43,6 @@ const LoginPage = ({navigation}) => {
         passwordVisibility={passwordVisibility}
         setPasswordVisibility={setPasswordVisibility}
       />
-
       <FormButton
         buttonTitle="Sign In"
         onPress={() => login(email, password)}

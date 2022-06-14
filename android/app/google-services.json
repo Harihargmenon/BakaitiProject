@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "657448627589",
+    "project_id": "thebakaitiproject",
+    "storage_bucket": "thebakaitiproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657448627589:android:2c997587b4312f21a928ec",
+        "android_client_info": {
+          "package_name": "com.bakaitiproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657448627589-0iji9qcb3lsvorv7hhh74hpptgpnl93l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bakaitiproject",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "657448627589-fr1g8309g7vs3lo79fh88dhnghqvou0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTeQYPQr1PXzmLkop0LVb26G1pDGuMu7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657448627589-fr1g8309g7vs3lo79fh88dhnghqvou0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 apply plugin: "com.android.application"
 
+
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -83,6 +84,8 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -228,6 +231,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+    storeFile file('bakaiti_project')
+      storePassword 'password123'
+      keyAlias 'bakaiti_project'
+      keyPassword 'password123'
+   }
     }
     buildTypes {
         debug {
@@ -280,6 +289,10 @@ dependencies {
         exclude group:'com.facebook.flipper'
     }
 
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+
+    implementation 'com.google.firebase:firebase-analytics'
+
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
@@ -317,3 +330,5 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+
+apply plugin: 'com.google.gms.google-services'

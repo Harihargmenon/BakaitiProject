@@ -17,8 +17,12 @@ import PostCard from '../components/PostCard';
 const ProfilePage = ({navigation, route}) => {
   const {user, logout} = useContext(AuthContext);
 
+  console.log(user);
   return (
     <View>
+      <Text>Profile Page</Text>
+      <Text>{user.email}</Text>
+      <Text>{user.displayName}</Text>
       <TouchableOpacity style={styles.userBtn} onPress={() => logout()}>
         <Text style={styles.userBtnTxt}>Logout</Text>
       </TouchableOpacity>

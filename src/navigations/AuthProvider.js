@@ -46,6 +46,9 @@ export const AuthProvider = ({children}) => {
           }
         },
         register: async (email, password, emailExists, displayName) => {
+          const update = {
+            displayName: 'displayName',
+          };
           try {
             await auth()
               .createUserWithEmailAndPassword(email, password)
@@ -56,11 +59,13 @@ export const AuthProvider = ({children}) => {
                   .collection('users')
                   .doc(auth().currentUser.uid)
                   .set({
-                    displayName: displayName,
-                    lname: '',
                     email: email,
                     createdAt: firestore.Timestamp.fromDate(new Date()),
                     userImg: null,
+                  })
+                  //update the user's display name
+                  .then(() => {
+                    auth().currentUser.updateProfile(update);
                   })
                   //ensure we catch any errors at this stage to advise us if something does go wrong
                   .catch(error => {

@@ -38,6 +38,24 @@ export const AuthProvider = ({children}) => {
             // Sign-in the user with the credential
             await auth()
               .signInWithCredential(googleCredential)
+              //check if the google user is new or not
+              .then(async userG => {
+                if (userG.additionalUserInfo.isNewUser) {
+                  //if the user is new, create a new user in the database
+                  await firestore()
+                    .collection('users')
+                    .doc(auth().currentUser.uid)
+                    .set({
+                      //update email with gmail id
+                      email: auth().currentUser.email,
+                      createdAt: firestore.Timestamp.fromDate(new Date()),
+                      userImg: null,
+                    })
+                    .then(() => {
+                      console.log('User created');
+                    });
+                }
+              })
               .catch(error => {
                 console.log('Something went wrong with sign up: ', error);
               });
@@ -120,6 +138,19 @@ export const AuthProvider = ({children}) => {
               .update({
                 [topic]: value,
               });
+          } catch (e) {
+            console.log(e);
+          }
+        },
+        //display user's profile data and the fields
+        getUserData: async () => {
+          try {
+            const userData = await firestore()
+              .collection('users')
+              .doc(auth().currentUser.uid)
+              .get();
+            console.log(userData);
+            return userData.data();
           } catch (e) {
             console.log(e);
           }

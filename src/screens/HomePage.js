@@ -26,12 +26,12 @@ const HomeScreen = ({navigation}) => {
     <View>
       <Text>This is the Homepage of the Bakaiti Project</Text>
       <View>
-        <TopicCard topic="Climate change" />
-        <TopicCard topic="Food" />
-        <TopicCard topic="Health" />
-        <TopicCard topic="Environment" />
-        <TopicCard topic="Education" />
-        <TopicCard topic="Human rights" />
+        <TopicCard topic="climate change" />
+        <TopicCard topic="food" />
+        <TopicCard topic="health" />
+        <TopicCard topic="environment" />
+        <TopicCard topic="education" />
+        <TopicCard topic="human rights" />
       </View>
     </View>
   );

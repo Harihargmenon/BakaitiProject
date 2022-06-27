@@ -111,6 +111,19 @@ export const AuthProvider = ({children}) => {
             console.log(e);
           }
         },
+        //add the topic to the user's list of topics
+        addTopic: async (topic, value) => {
+          try {
+            await firestore()
+              .collection('users')
+              .doc(auth().currentUser.uid)
+              .update({
+                [topic]: value,
+              });
+          } catch (e) {
+            console.log(e);
+          }
+        },
       }}>
       {children}
     </AuthContext.Provider>

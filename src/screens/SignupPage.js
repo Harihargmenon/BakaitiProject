@@ -13,6 +13,7 @@ import SocialButton from '../components/SocialButton';
 import {AuthContext} from '../navigations/AuthProvider';
 
 const SignupPage = ({navigation}) => {
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
@@ -35,6 +36,15 @@ const SignupPage = ({navigation}) => {
       <Text style={styles.text}>Create an account</Text>
 
       <FormInput
+        labelValue={displayName}
+        onChangeText={e => setDisplayName(e)}
+        placeholderText="Name"
+        iconType="user"
+        autoCapitalize="none"
+        autoCorrect={false}
+      />
+
+      <FormInput
         labelValue={email}
         onChangeText={userEmail => setEmail(userEmail)}
         placeholderText="Email"
@@ -43,7 +53,6 @@ const SignupPage = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-
       <FormInput
         labelValue={password}
         onChangeText={userPassword => setPassword(userPassword)}
@@ -53,7 +62,6 @@ const SignupPage = ({navigation}) => {
         passwordVisibility={passwordVisibility}
         setPasswordVisibility={setPasswordVisibility}
       />
-
       <FormInput
         labelValue={confirmPassword}
         onChangeText={userPassword => setConfirmPassword(userPassword)}
@@ -63,12 +71,10 @@ const SignupPage = ({navigation}) => {
         passwordVisibility={passwordVisibility}
         setPasswordVisibility={setPasswordVisibility}
       />
-
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => register(email, password, emailExists)}
+        onPress={() => register(email, password, emailExists, displayName)}
       />
-
       {Platform.OS === 'android' ? (
         <View>
           <SocialButton
@@ -87,7 +93,6 @@ const SignupPage = ({navigation}) => {
           />
         </View>
       ) : null}
-
       <TouchableOpacity
         style={styles.navButton}
         onPress={() => navigation.navigate('Login')}>

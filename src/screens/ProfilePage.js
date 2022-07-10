@@ -15,10 +15,20 @@ import firestore from '@react-native-firebase/firestore';
 import PostCard from '../components/PostCard';
 
 const ProfilePage = ({navigation, route}) => {
-  const {user, logout} = useContext(AuthContext);
+  const {user, logout, getUserData} = useContext(AuthContext);
+  const userDocument = firestore().collection('Users').doc(user.uid).get();
+
+  //getting field values from getUserData
 
   return (
     <View>
+      <Text>{user.email}</Text>
+      <Text style={styles.userName}>{user.displayName}</Text>
+      <Text>
+        {getUserData.health === undefined
+          ? 'No health data'
+          : getUserData.health}
+      </Text>
       <TouchableOpacity style={styles.userBtn} onPress={() => logout()}>
         <Text style={styles.userBtnTxt}>Logout</Text>
       </TouchableOpacity>

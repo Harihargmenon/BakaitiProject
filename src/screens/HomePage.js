@@ -19,26 +19,20 @@ import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 
 import {Card, Container} from '../styles/FeedStyles';
+import TopicCard from '../components/TopicCard';
 
 const HomeScreen = ({navigation}) => {
   return (
     <View>
       <Text>This is the Homepage of the Bakaiti Project</Text>
-      <Card>
-        <Text>Topic A</Text>
-      </Card>
-      <Card>
-        <Text>Topic B</Text>
-      </Card>
-      <Card>
-        <Text>Topic C</Text>
-      </Card>
-      <Card>
-        <Text>Topic D</Text>
-      </Card>
-      <Card>
-        <Text>Topic E</Text>
-      </Card>
+      <View>
+        <TopicCard topic="climate change" />
+        <TopicCard topic="food" />
+        <TopicCard topic="health" />
+        <TopicCard topic="environment" />
+        <TopicCard topic="education" />
+        <TopicCard topic="human rights" />
+      </View>
     </View>
   );
 };
